@@ -175,35 +175,7 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="flex gap-4 justify-center lg:justify-start">
-                <a
-                  href="https://github.com/shashenAmalka"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon glass-button-outline p-4 rounded-full group"
-                  aria-label="GitHub"
-                >
-                  <GithubLogo 
-                    size={24} 
-                    weight="light" 
-                    className="text-foreground group-hover:text-primary transition-colors" 
-                  />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/shashen-amalka-0604373a1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon glass-button-outline p-4 rounded-full group"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedinLogo 
-                    size={24} 
-                    weight="light" 
-                    className="text-foreground group-hover:text-primary transition-colors" 
-                  />
-                </a>
-              </div>
+              
             </div>
           </div>
         </div>

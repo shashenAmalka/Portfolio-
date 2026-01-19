@@ -39,7 +39,7 @@ const skillCategories: Record<string, Skill[]> = {
     { icon: SiTailwindcss, name: 'Tailwind CSS', color: '#06B6D4' },
     { icon: SiGreensock, name: 'GSAP', color: '#88CE02' },
     { icon: SiFramer, name: 'Framer Motion', color: '#0055FF' },
-    { icon: SiSass, name: 'Sass', color: '#CC6699' },
+
     { icon: SiBootstrap, name: 'Bootstrap', color: '#7952B3' },
   ],
   'BACKEND': [

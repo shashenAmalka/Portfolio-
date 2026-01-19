@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { List, X } from '@phosphor-icons/react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -9,7 +8,6 @@ const navLinks = [
 ];
 
 const Navigation: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -37,15 +35,15 @@ const Navigation: React.FC = () => {
   }, []);
 
   const handleNavClick = (href: string) => {
-    setIsMenuOpen(false);
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
+      {/* Desktop Navigation - Always visible on desktop */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled ? 'nav-glass py-4' : 'py-6'
         }`}
       >
@@ -65,7 +63,7 @@ const Navigation: React.FC = () => {
             </a>
 
             {/* Desktop Navigation - Centered Glass Buttons */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-3">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.replace('#', '');
                 return (
@@ -89,7 +87,7 @@ const Navigation: React.FC = () => {
             </div>
 
             {/* Right Side Actions */}
-            <div className="hidden md:flex items-center gap-3 md:absolute md:right-6">
+            <div className="flex items-center gap-3 md:absolute md:right-6">
               {/* Hire Me Button */}
               <a
                 href="#contact"
@@ -103,47 +101,22 @@ const Navigation: React.FC = () => {
               </a>
             </div>
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
-            <button
-              onClick={() => setIsMenuOpen(true)}
-              className="p-2 text-foreground"
-              aria-label="Open menu"
-            >
-              <List size={28} weight="light" />
-            </button>
-          </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Navigation - Liquid Glass Buttons (Visible on Scroll) */}
       <div
-        className={`fixed inset-0 z-[100] transition-all duration-500 ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`md:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? 'translate-y-0 opacity-100' 
+            : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div
-          className="absolute inset-0 bg-background/95 backdrop-blur-xl"
-          onClick={() => setIsMenuOpen(false)}
-        />
-        <div
-          className={`absolute inset-y-0 right-0 w-full max-w-sm bg-card/90 backdrop-blur-xl transform transition-transform duration-500 ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="p-6">
-            <div className="flex justify-end">
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="p-2 text-foreground"
-                aria-label="Close menu"
-              >
-                <X size={28} weight="light" />
-              </button>
-            </div>
-            <div className="flex flex-col gap-6 mt-12">
-              {navLinks.map((link) => (
+        <div className="nav-glass py-3 px-4">
+          <div className="flex items-center justify-center gap-2 overflow-x-auto scrollbar-hide">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
                 <a
                   key={link.name}
                   href={link.href}
@@ -151,22 +124,26 @@ const Navigation: React.FC = () => {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="text-2xl font-medium text-foreground hover:text-primary transition-colors duration-300"
+                  className={`glass-button-outline px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
+                    isActive 
+                      ? 'bg-primary/20 border-primary text-primary shadow-lg shadow-primary/20' 
+                      : 'hover:bg-primary/10 hover:border-primary'
+                  }`}
                 >
                   {link.name}
                 </a>
-              ))}
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('#contact');
-                }}
-                className="glow-button text-center mt-6"
-              >
-                Hire Me
-              </a>
-            </div>
+              );
+            })}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#contact');
+              }}
+              className="glow-button text-xs px-4 py-1.5 rounded-full whitespace-nowrap flex-shrink-0"
+            >
+              <span>Hire Me</span>
+            </a>
           </div>
         </div>
       </div>
