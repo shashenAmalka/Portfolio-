@@ -14,6 +14,21 @@
     <meta property="og:type" content="website" />
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Suppress third-party console logs
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        const originalLog = console.log;
+        console.log = function() {
+          const args = Array.from(arguments);
+          const message = args.join(' ');
+          // Filter out known third-party logs
+          if (message && typeof message === 'string' && (message.includes('hereo') || message.includes('Violation'))) {
+            return;
+          }
+          originalLog.apply(console, arguments);
+        };
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

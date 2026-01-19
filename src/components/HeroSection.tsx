@@ -30,7 +30,9 @@ const HeroSection: React.FC = () => {
             <span className="text-foreground">Web Developer</span>
           </h1>
 
-        
+          <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            Building modern, scalable web applications with cutting-edge technologies
+          </p>
 
           {/* CTA Buttons */}
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">

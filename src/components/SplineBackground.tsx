@@ -15,6 +15,8 @@ const SplineBackground: React.FC = () => {
         }}
         title="3D Orb Background"
         loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+        referrerPolicy="no-referrer"
       />
       {/* Gradient overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80" />
