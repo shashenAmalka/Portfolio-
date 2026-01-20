@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { 
   PaperPlaneTilt, 
-  GithubLogo, 
-  LinkedinLogo, 
   EnvelopeSimple,
   User,
   ChatCircle
@@ -10,27 +9,45 @@ import {
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: 'K M S A Darshana',
-    email: 'amalkadarshana9@gmail.com',
-    message: "Hello Shashen! I came across your portfolio and I'm impressed with your work. I'd love to discuss a potential collaboration on an upcoming project. Let me know your availability!",
+    name: '',
+    email: '',
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+    try {
+      const result = await emailjs.send(
+        'service_uq7o3i2',
+        'template_krec17g',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'amalkadarshana9@gmail.com'
+        },
+        'Ho9sYLIkdswMUOGSs'
+      );
+      
+      console.log('Email sent successfully:', result);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (err: any) {
+      console.error('EmailJS Error:', err);
+      setError(err?.text || 'Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -78,7 +95,7 @@ const ContactSection: React.FC = () => {
                       onChange={handleChange}
                       required
                       className="glass-input w-full pl-12 text-foreground placeholder:text-muted-foreground focus:outline-none"
-                      placeholder="John Doe"
+                      placeholder="Your name"
                     />
                   </div>
                 </div>
@@ -101,7 +118,7 @@ const ContactSection: React.FC = () => {
                       onChange={handleChange}
                       required
                       className="glass-input w-full pl-12 text-foreground placeholder:text-muted-foreground focus:outline-none"
-                      placeholder="john@example.com"
+                      placeholder="name@example.com"
                     />
                   </div>
                 </div>
@@ -128,6 +145,13 @@ const ContactSection: React.FC = () => {
                     />
                   </div>
                 </div>
+
+                {/* Error Message */}
+                {error && (
+                  <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm">
+                    {error}
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button
