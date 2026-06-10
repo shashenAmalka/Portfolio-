@@ -42,9 +42,9 @@ const ContactSection: React.FC = () => {
       setTimeout(() => {
         setIsSubmitted(false);
       }, 3000);
-    } catch (err: any) {
+    } catch (err) {
       console.error('EmailJS Error:', err);
-      setError(err?.text || 'Failed to send message. Please try again.');
+      setError((err as { text?: string })?.text || 'Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
