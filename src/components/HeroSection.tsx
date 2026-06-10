@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
             <span className="text-foreground">Hi, I'm </span>
             <span className="text-gradient neon-text">Shashen</span>
             <br />
-            <span className="text-foreground">Web Developer</span>
+            <span className="text-foreground">AI & Full-Stack Developer</span>
           </h1>
 
           <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
