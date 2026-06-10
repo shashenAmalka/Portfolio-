@@ -18,8 +18,8 @@ import {
   SiPrisma,
   SiGit,
   SiDocker,
-  SiAmazonwebservices
 } from 'react-icons/si';
+import { FaAws } from 'react-icons/fa';
 import profileImage from '@/assets/profile.png';
 
 interface Skill {
@@ -55,7 +55,7 @@ const skillCategories: Record<string, Skill[]> = {
   'TOOLS': [
     { icon: SiGit, name: 'Git', color: '#F05032' },
     { icon: SiDocker, name: 'Docker', color: '#2496ED' },
-    { icon: SiAmazonwebservices, name: 'AWS', color: '#FF9900' },
+    { icon: FaAws, name: 'AWS', color: '#FF9900' },
   ],
 };
 
