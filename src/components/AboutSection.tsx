@@ -8,7 +8,6 @@ import {
   SiTailwindcss,
   SiGreensock,
   SiFramer,
-  SiSass,
   SiBootstrap,
   SiNodedotjs,
   SiNestjs,
@@ -194,7 +193,7 @@ const AboutSection: React.FC = () => {
                 ))}
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                I'm a passionate full-stack developer with expertise in building modern, 
+                I&apos;m a passionate full-stack developer with expertise in building modern, 
                 responsive, and user-centric web applications. With a keen eye for 
                 design and a love for clean code, I transform ideas into immersive 
                 digital experiences.
@@ -202,7 +201,7 @@ const AboutSection: React.FC = () => {
               <p className="text-muted-foreground text-lg leading-relaxed">
                 My journey in web development has equipped me with a strong foundation 
                 in frontend technologies, AI and machine learning, animation libraries and modern 
-                frameworks. I'm constantly learning and exploring new technologies to 
+                frameworks. I&apos;m constantly learning and exploring new technologies to 
                 deliver cutting-edge solutions.
               </p>
             </div>
