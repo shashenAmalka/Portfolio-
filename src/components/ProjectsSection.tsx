@@ -14,6 +14,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    id: 7,
+    title: 'Campus Lost & Found',
+    description: 'AI-powered campus lost & found platform featuring AI matching, secure handovers, and real-time messaging.',
+    image: project7,
+    tech: ['Next.js', 'React', 'MongoDB', 'AI'],
+    githubUrl: 'https://github.com/shashenAmalka/Lost-Found-System',
+    liveUrl: 'https://lost-found-system-theta.vercel.app/',
+  },
+  {
     id: 1,
     title: 'CareDesk',
     description: 'Support ticket management with real-time communication and satisfaction tracking.',
@@ -61,15 +70,7 @@ const projects = [
     tech: ['React', 'Spring Boot', 'MongoDB', 'JWT'],
     githubUrl: 'https://github.com/shashenAmalka/it3030-paf-2026-smart-campus',
   },
-  {
-    id: 7,
-    title: 'Campus Lost & Found',
-    description: 'AI-powered campus lost & found platform featuring AI matching, secure handovers, and real-time messaging.',
-    image: project7,
-    tech: ['Next.js', 'React', 'MongoDB', 'AI'],
-    githubUrl: 'https://github.com/shashenAmalka/Lost-Found-System',
-    liveUrl: 'https://lost-found-system-theta.vercel.app/',
-  },
+  
 ];
 
 const ProjectsSection: React.FC = () => {
