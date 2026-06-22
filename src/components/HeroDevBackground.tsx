@@ -86,46 +86,34 @@ const HeroDevBackground: React.FC = () => {
         />
       ))}
 
-      {/* ── 2 orbit rings (GPU-friendly rotation) ── */}
+      {/* ── Flat 2D HUD Tech Background (Highly Performant) ── */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-30 pointer-events-none">
+        {/* Outer tech ring */}
+        <div className="absolute inset-[15%] rounded-full border border-[hsl(262,83%,65%,0.3)] border-dashed animate-spin-slow" />
+        
+        {/* Crosshairs */}
+        <div className="absolute top-1/2 left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-[hsl(192,95%,68%,0.4)] to-transparent" />
+        <div className="absolute left-1/2 top-[10%] bottom-[10%] w-[1px] bg-gradient-to-b from-transparent via-[hsl(262,83%,65%,0.4)] to-transparent" />
+        
+        {/* Frame corners */}
+        <div className="absolute top-[25%] left-[25%] w-12 h-12 border-t-2 border-l-2 border-[hsl(192,95%,68%,0.5)]" />
+        <div className="absolute top-[25%] right-[25%] w-12 h-12 border-t-2 border-r-2 border-[hsl(192,95%,68%,0.5)]" />
+        <div className="absolute bottom-[25%] left-[25%] w-12 h-12 border-b-2 border-l-2 border-[hsl(192,95%,68%,0.5)]" />
+        <div className="absolute bottom-[25%] right-[25%] w-12 h-12 border-b-2 border-r-2 border-[hsl(192,95%,68%,0.5)]" />
+      </div>
+
+      {/* ── Animated glow behind 3D model ── */}
       <div
-        className="absolute left-1/2 top-1/2 rounded-full"
+        className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2"
         style={{
           width: '500px',
           height: '500px',
-          border: '1px solid hsl(192 95% 68% / 0.12)',
-          animation: 'orbitSpin 20s linear infinite',
-          willChange: 'transform',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, hsl(262 83% 65% / 0.15) 0%, hsl(192 95% 68% / 0.05) 40%, transparent 70%)',
+          animation: 'radialPulse 6s ease-in-out infinite',
+          willChange: 'transform, opacity',
         }}
-      >
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: '6px', height: '6px',
-            top: '-3px', left: '50%', transform: 'translateX(-50%)',
-            background: 'hsl(192 95% 68%)',
-          }}
-        />
-      </div>
-      <div
-        className="absolute left-1/2 top-1/2 rounded-full"
-        style={{
-          width: '650px',
-          height: '650px',
-          border: '1px solid hsl(262 83% 65% / 0.08)',
-          animation: 'orbitSpin 30s linear infinite reverse',
-          animationDelay: '2s',
-          willChange: 'transform',
-        }}
-      >
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: '5px', height: '5px',
-            top: '-2.5px', left: '50%', transform: 'translateX(-50%)',
-            background: 'hsl(262 83% 65%)',
-          }}
-        />
-      </div>
+      />
 
       {/* ── Large radial glow (static, no animation — cheapest way) ── */}
       <div
