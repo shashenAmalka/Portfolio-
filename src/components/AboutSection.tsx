@@ -198,12 +198,21 @@ const AboutSection: React.FC = () => {
                 design and a love for clean code, I transform ideas into immersive 
                 digital experiences.
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                 My journey in web development has equipped me with a strong foundation 
                 in frontend technologies, AI and machine learning, animation libraries and modern 
                 frameworks. I&apos;m constantly learning and exploring new technologies to 
                 deliver cutting-edge solutions.
               </p>
+              <div className="pt-2">
+                <a
+                  href="/cv.pdf"
+                  download="Shashen_Amalka_CV.pdf"
+                  className="glow-button inline-flex items-center gap-2 text-base py-3 px-8"
+                >
+                  <span>Download Full Resume / CV</span>
+                </a>
+              </div>
             </div>
 
             {/* Categorized Skills */}

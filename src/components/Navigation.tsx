@@ -88,6 +88,14 @@ const Navigation: React.FC = () => {
 
             {/* Right Side Actions */}
             <div className="flex items-center gap-3 md:absolute md:right-6">
+              {/* CV Button */}
+              <a
+                href="/cv.pdf"
+                download="Shashen_Amalka_CV.pdf"
+                className="glass-button-outline text-sm px-6 py-2 rounded-full"
+              >
+                <span>Resume</span>
+              </a>
               {/* Hire Me Button */}
               <a
                 href="#contact"
@@ -134,6 +142,13 @@ const Navigation: React.FC = () => {
                 </a>
               );
             })}
+            <a
+              href="/cv.pdf"
+              download="Shashen_Amalka_CV.pdf"
+              className="glass-button-outline text-xs px-4 py-1.5 rounded-full whitespace-nowrap flex-shrink-0"
+            >
+              <span>Resume</span>
+            </a>
             <a
               href="#contact"
               onClick={(e) => {

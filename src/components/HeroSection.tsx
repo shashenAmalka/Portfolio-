@@ -42,6 +42,13 @@ const HeroSection: React.FC = () => {
             >
               <span className="relative z-10">Hire Me</span>
             </button>
+            {/* <a
+              href="/cv.pdf"
+              download="Shashen_Amalka_CV.pdf"
+              className="glass-button-outline text-base"
+            >
+              <span className="relative z-10">Download CV</span>
+            </a> */}
             <a
               href="#projects"
               onClick={(e) => {

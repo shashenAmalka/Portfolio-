@@ -10,7 +10,7 @@ const SplineBackground: React.FC = () => {
         height="100%"
         className="absolute inset-0"
         style={{ 
-          pointerEvents: 'none',
+          pointerEvents: 'auto',
           opacity: 0.9,
         }}
         title="3D Orb Background"
@@ -19,7 +19,7 @@ const SplineBackground: React.FC = () => {
         referrerPolicy="no-referrer"
       />
       {/* Gradient overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80 pointer-events-none" />
     </div>
   );
 };
