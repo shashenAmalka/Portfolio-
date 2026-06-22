@@ -218,11 +218,15 @@ const ProjectsSection: React.FC = () => {
               {/* Card */}
               <div className="relative rounded-xl overflow-hidden border border-white/[0.06] bg-card/80 backdrop-blur-md h-full flex flex-col">
                 {/* Image */}
-                <div className="relative h-40 sm:h-44 overflow-hidden bg-black/20">
+                <div className={`relative h-40 sm:h-44 overflow-hidden ${
+                  project.id === 5 ? 'bg-black/40 flex items-center justify-center p-6' : 'bg-black/20'
+                }`}>
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="card-image w-full h-full transition-none object-cover"
+                    className={`card-image transition-none ${
+                      project.id === 5 ? 'max-h-full max-w-full object-contain' : 'w-full h-full object-cover'
+                    }`}
                   />
                   {/* Hover Overlay with GitHub / Live links */}
                   <div className="card-overlay absolute inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center gap-2 opacity-0 transition-none">
