@@ -221,11 +221,7 @@ const ProjectsSection: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`card-image w-full h-full transition-none ${
-                      project.id === 4 || project.id === 5
-                        ? 'object-contain p-3 bg-card/60'
-                        : 'object-cover'
-                    }`}
+                    className="card-image w-full h-full transition-none object-cover"
                   />
                   {/* Hover Overlay with GitHub / Live links */}
                   <div className="card-overlay absolute inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center gap-2 opacity-0 transition-none">
