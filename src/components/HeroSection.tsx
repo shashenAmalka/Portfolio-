@@ -1,5 +1,6 @@
 import React from 'react';
 import SplineBackground from './SplineBackground';
+import HeroDevBackground from './HeroDevBackground';
 import FloatingOrbs from './FloatingOrbs';
 
 const HeroSection: React.FC = () => {
@@ -13,6 +14,9 @@ const HeroSection: React.FC = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Developer-themed background effects */}
+      <HeroDevBackground />
+
       {/* Spline 3D Background */}
       <SplineBackground />
 
@@ -20,22 +24,22 @@ const HeroSection: React.FC = () => {
       <FloatingOrbs />
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 text-center">
+      <div className="container mx-auto px-6 relative z-10 text-center pointer-events-none">
         <div className="max-w-4xl mx-auto">
           {/* Main Headline */}
-          <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+          <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 pointer-events-auto">
             <span className="text-foreground">Hi, I'm </span>
             <span className="text-gradient neon-text">Shashen</span>
             <br />
             <span className="text-foreground">AI & Full-Stack Developer</span>
           </h1>
 
-          <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 pointer-events-auto">
             Building modern, scalable web applications with cutting-edge technologies
           </p>
 
           {/* CTA Buttons */}
-          <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto">
             <button
               onClick={handleContactClick}
               className="glow-button animate-pulse-glow text-base"

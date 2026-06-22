@@ -474,6 +474,107 @@
     animation: codeFloat 15s ease-in-out infinite;
   }
 
+  /* Developer Background Effects */
+  @keyframes codeSymbolFloat {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-15px) rotate(2deg) scale(1.05);
+    }
+    50% {
+      transform: translateY(-25px) rotate(-1deg) scale(1);
+    }
+    75% {
+      transform: translateY(-10px) rotate(3deg) scale(0.95);
+    }
+  }
+
+  @keyframes dotPulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.8);
+    }
+  }
+
+  @keyframes dashFlow {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  @keyframes radialPulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.07;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.15);
+      opacity: 0.12;
+    }
+  }
+
+  @keyframes ringPulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.04;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.08;
+    }
+  }
+
+  @keyframes orbitSpin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes particleFade {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scanlineMove {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(4px);
+    }
+  }
+
+  @keyframes binaryScroll {
+    0% {
+      transform: translateY(0);
+      opacity: 0.06;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    100% {
+      transform: translateY(-20px);
+      opacity: 0.06;
+    }
+  }
+
   /* Grid Movement Animation */
   @keyframes gridMove {
     0% {
